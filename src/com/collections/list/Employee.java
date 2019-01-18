@@ -1,6 +1,14 @@
 package com.collections.list;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
+	
+	@Override
+	public int compareTo(Employee emp) {
+		
+		return this.empSal.compareTo(emp.empSal);
+		
+	}
+
 	
 	@Override
 	public String toString() {
@@ -8,7 +16,10 @@ public class Employee {
 		return empId+" : "+empName+" : "+empSal;
 	}
 	
-	static int hashCalledCount =0;
+	
+	
+	
+	/*static int hashCalledCount =0;
 	@Override
 	public int hashCode() {
 		hashCalledCount++;
@@ -36,9 +47,52 @@ public class Employee {
 		}
 	}
 	
+*/
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((empId == null) ? 0 : empId.hashCode());
+		result = prime * result + ((empName == null) ? 0 : empName.hashCode());
+		result = prime * result + ((empSal == null) ? 0 : empSal.hashCode());
+		return result;
+	}
 
-	
-	
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		if (empId == null) {
+			if (other.empId != null)
+				return false;
+		} else if (!empId.equals(other.empId))
+			return false;
+		if (empName == null) {
+			if (other.empName != null)
+				return false;
+		} else if (!empName.equals(other.empName))
+			return false;
+		if (empSal == null) {
+			if (other.empSal != null)
+				return false;
+		} else if (!empSal.equals(other.empSal))
+			return false;
+		return true;
+	}
+
+
+
+
 	public Employee(Integer empId, String empName, String empSal) {
 		super();
 		this.empId = empId;
@@ -72,6 +126,14 @@ public class Employee {
 	public void setEmpSal(String empSal) {
 		this.empSal = empSal;
 	}
+
+
+
+
+	
+
+
+
 	
 	
 	
