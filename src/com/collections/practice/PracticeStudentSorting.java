@@ -17,14 +17,10 @@ class StdBranchBasedSort implements Comparator<Student>{
 		
 		 return (branchCompare!=0) ? branchCompare: (nameCompare!=0)?nameCompare:idCompare;
 	}
-	
-	
-	
 }
 public class PracticeStudentSorting {
 
 	public static void main(String[] args) {
-		
 		
 		Set<Student> set = new TreeSet<>(new StdBranchBasedSort());
 		set.add(new Student(104, "Prem", "EEE", "JBIT"));
