@@ -98,9 +98,6 @@ class Student implements Comparable<Student>{
 	public void setStdClg(String stdClg) {
 		this.stdClg = stdClg;
 	}
-
-	
-	
 	
 }
 
